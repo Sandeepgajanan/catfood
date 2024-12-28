@@ -3,7 +3,7 @@ import Heading from "./Heading";
 
 const Hero = () => {
   return (
-    <div className="max-w-screen-xl mx-auto w-full relative mt-4 max-sm:px-4">
+    <div className="max-w-screen-xl mx-auto w-full pt-5 max-sm:px-3">
       <div>
         <Heading />
 
