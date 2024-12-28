@@ -4,9 +4,12 @@
 
 @font-face {
   font-family: "yr";
-  src: url('./yr.woff2');
+  src: url('/yr.woff2') format('woff2'),
+    url('/yr.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-*{
+* {
   font-family: yr;
 }
