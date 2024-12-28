@@ -1,19 +1,16 @@
 import React from "react";
+import Heading from "./Heading";
 
 const Hero = () => {
   return (
     <div className="max-w-screen-xl mx-auto w-full relative mt-4 max-sm:px-4">
-      {/* Desktop Layout */}
-      <div className="block max-sm:hidden">
-        <h1 className="text-[3.5vw] leading-[4vw] tracking-tighter font-bold text-center text-zinc-800 mb-12">
-          Voted #1 Healthiest <br />
-          Cat Food
-        </h1>
+      <div>
+        <Heading />
 
-        <div className="flex justify-between items-start w-full h-[60vh]">
+        <div className="flex justify-between items-start w-full h-[60vh] max-sm:h-auto max-sm:flex-col ">
           {/* Left Section */}
-          <div className="w-[20%] flex flex-col justify-between h-full items-center">
-            <div className="w-full flex flex-col space-y-2">
+          <div className="w-44 max-sm:w-full flex flex-col justify-between h-full items-center p-2">
+            <div className="w-full flex flex-col space-y-2 max-sm:grid max-sm:grid-cols-2 max-sm:gap-4 max-sm:space-y-0">
               {[
                 "Why Smalls",
                 "Behind Our Food",
@@ -23,161 +20,81 @@ const Hero = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-between items-center cursor-pointer group"
+                  className="flex justify-between items-center cursor-pointer group gap-2 max-sm:flex-nowrap"
                 >
-                  <span className="text-xs font-medium tracking-tighter">
+                  <span className="text-[0.70rem] font-medium tracking-tighter whitespace-nowrap">
                     {item}
                   </span>
-                  <i className="ri-arrow-right-up-long-line transform group-hover:translate-x-1 transition-transform"></i>
+                  <i className="ri-arrow-right-up-long-line transform group-hover:translate-x-1 transition-transform  text-xs"></i>
                 </div>
               ))}
             </div>
-            <div className="relative w-28 h-28 rounded-full bg-white cursor-pointer flex items-center justify-center">
-              <div className="absolute top-8 w-6 h-6 bg-black rounded-full flex items-center justify-center">
+            <div className="relative w-28 h-28 max-sm:w-20 max-sm:h-20 rounded-full bg-white cursor-pointer flex items-center justify-center max-sm:mt-4">
+              <div className="absolute top-8 max-sm:top-6 w-6 h-6 max-sm:w-5 max-sm:h-5 bg-black rounded-full flex items-center justify-center">
                 <i className="ri-play-fill text-white text-xs"></i>
               </div>
-              <span className="text-black mt-8 text-[0.7rem] font-medium tracking-tighter">
+              <span className="text-black mt-8 max-sm:mt-6 text-[0.7rem] max-sm:text-[0.5rem] font-medium tracking-tighter">
                 Watch Video
               </span>
             </div>
           </div>
 
           {/* Center Section */}
-          <div className="w-1/2 h-full">
-            <div className="flex justify-center">
-              <div className="w-56 h-80 border border-white -mt-12">
+          <div className="w-1/2 max-sm:w-full h-full">
+            <div className="flex justify-center max-sm:justify-between max-sm:gap-4">
+              <div className="w-56 max-sm:w-36 h-72 max-sm:h-56 border transform -rotate-3 -mt-8 max-sm:mt-0 shadow-[4px_8px_20px_rgb(0,0,0,0.2)]">
                 <img
                   src="/food1.webp"
                   alt="Cat Food 1"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
-              <div className="w-56 h-80 border border-white ml-6 mt-10">
+              <div className="w-56 max-sm:w-36 h-72 max-sm:h-56 border transform rotate-3 ml-6 max-sm:ml-0 mt-10 shadow-[4px_8px_20px_rgb(0,0,0,0.2)]">
                 <img
-                  src="/food2.jpeg"
+                  src="/fresh.jpg"
                   alt="Cat Food 2"
                   className="w-full h-full"
+                  loading="lazy"
                 />
               </div>
             </div>
-            <div className="w-fit ml-36 -mt-8 flex justify-between gap-4 items-center cursor-pointer">
-              <span className="text-xs font-medium tracking-tighter">
+            <div className="w-fit ml-36 max-sm:m-auto -mt-8 max-sm:mt-5 flex justify-between gap-4 items-center cursor-pointer group  transition-all">
+              <span className="text-xs font-medium tracking-tighter ">
                 View All
               </span>
-              <i className="ri-arrow-right-up-long-line text-3xl"></i>
+              <i className="ri-arrow-right-up-long-line text-3xl max-sm:text-lg transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
             </div>
           </div>
 
           {/* Right Section */}
-          <div className="w-1/4 space-y-10 pt-8 h-full flex flex-col justify-between">
-            <p className="text-sm leading-tight text-zinc-800">
-              <span className="font-bold">100%</span> healthy and quality food for
-              your furry friend
-            </p>
-            <div className="flex flex-col items-start gap-3">
-              <i className="ri-shield-check-line text-xl"></i>
-              <p className="text-sm text-zinc-700">
-                Experience peace of mind with our premium customer protection
-                service.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Layout */}
-      <div className="hidden max-sm:block">
-        <div className="grid grid-cols-2 gap-4 mb-8 ">
-          <div className="space-y-2">
-            {["Why Smalls", "Behind Our Food", "FAQs"].map((item, index) => (
+          <div className="w-1/4 max-sm:w-full h-full flex flex-col max-sm:flex-row justify-between gap-6 pt-8">
+            {[
+              {
+                icon: "ri-heart-fill",
+                text: "Premium quality food for your beloved pet",
+                width: "max-sm:w-1/2",
+              },
+              {
+                icon: "ri-shield-star-fill",
+                text: "100% satisfaction guaranteed",
+                width: "max-sm:w-1/2",
+              },
+            ].map((item, index) => (
               <div
                 key={index}
-                className="flex justify-between items-center cursor-pointer gap-2"
+                className={`bg-[#E2E8D4] rounded-2xl p-6 shadow-lg ${item.width} max-sm:h-32 max-sm:p-2 transform rotate-2`}
               >
-                <span className="text-xs font-medium tracking-tighter whitespace-nowrap">
-                  {item}
-                </span>
-                <i className="ri-arrow-right-up-long-line text-xs"></i>
+                <div className="flex items-center gap-3 max-sm:flex-col">
+                  <i className={`${item.icon} text-2xl text-[#8B9B6A]`}></i>
+                  <p className="text-xs font-medium text-zinc-800 text-center">
+                    {item.text}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
-          <div className="space-y-2">
-            {["Smalls Reviews", "Stores"].map((item, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center cursor-pointer gap-2"
-              >
-                <span className="text-xs font-medium tracking-tighter whitespace-nowrap">
-                  {item}
-                </span>
-                <i className="ri-arrow-right-up-long-line text-xs"></i>
-              </div>
-            ))}
-        
-          </div>
         </div>
-
-        <h1 className="text-[6vw] leading-[7vw] tracking-tighter font-bold text-center text-zinc-800 mb-8">
-          Voted #1 Healthiest <br />
-          Cat Food
-        </h1>
-
-        <div className="relative mb-6">
-          <div className="flex justify-between gap-4">
-            <div className="w-[48%] h-56 border border-white">
-              <img
-                src="/food1.webp"
-                alt="Cat Food 1"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="w-[48%] h-56 border border-white mt-10">
-              <img
-                src="/food2.jpeg"
-                alt="Cat Food 2"
-                className="w-full h-full"
-              />
-            </div>
-          </div>
-          <div className="relative w-20 h-20 rounded-full bg-white cursor-pointer flex items-center justify-center">
-              <div className="absolute top-6 w-5 h-5 bg-black rounded-full flex items-center justify-center">
-                <i className="ri-play-fill text-white text-xs"></i>
-              </div>
-              <span className="text-black mt-6 text-[0.5rem] font-medium tracking-tighter">
-                Watch Video
-              </span>
-            </div>
-          <div className=" flex items-center gap-4 cursor-pointer mt-5">
-            <span className="text-xs font-medium tracking-tighter">
-              View All
-            </span>
-            <i className="ri-arrow-right-up-long-line text-lg"></i>
-          </div>
-        </div>
-       
-       
-       
-        <div className="w-full py-8 px-5 flex flex-col gap-6">
-            <div className="w-full">
-              <div className="rounded-2xl p-4 border bg-transparent shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform rotate-2">
-                <p className="text-base leading-relaxed text-zinc-800">
-                  <span className="font-bold text-xs bg-yellow-100 px-2 py-0.5 rounded-md">100%</span>
-                  <span className="block mt-3 text-sm">healthy and quality food for your furry friend</span>
-                </p>
-              </div>
-            </div>
-            
-            <div className="w-full">
-              <div className="rounded-2xl p-6 relative bg-transparent shadow-[0_8px_30px_rgb(0,0,0,0.12)] transform -rotate-2">
-                
-                <p className="text-base leading-relaxed text-zinc-800">
-                  <span className="font-bold text-xs bg-yellow-100 px-2 py-0.5 rounded-md">100%</span>
-                  <span className="block mt-3 text-sm"> Experience peace of mind with our premium customer protection
-                  service</span>
-                </p>
-              </div>
-            </div>
-          </div>
       </div>
     </div>
   );
